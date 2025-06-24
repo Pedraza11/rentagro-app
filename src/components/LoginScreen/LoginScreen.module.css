@@ -1,0 +1,168 @@
+/* src/components/LoginScreen/LoginScreen.module.css */
+
+/* Variables de Color para fácil personalización */
+:root {
+    --primary-green: #4CAF50; /* Un verde vibrante y natural */
+    --secondary-brown: #795548; /* Marrón tierra */
+    --light-grey: #f0f4f8; /* Gris muy claro para el fondo de inputs */
+    --dark-grey: #333;
+    --text-color: #444;
+    --white: #ffffff;
+    --backdrop-color: rgba(255, 255, 255, 0.2); /* Blanco transparente para el blur */
+    --error-red: #d32f2f;
+    --info-blue: #1976d2;
+}
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    
+    
+    /*background-image: url('../../assets/images/background-campo.jpg'); /* Cuidado: si era .jpeg en realidad, cámbialo aquí */
+    background-color: #e1ded7;
+    background-size: cover; /* Cubre todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    
+    font-family: 'Roboto', sans-serif; /* Se recomienda importar desde Google Fonts en index.css */
+    color: var(--text-color);
+    padding: 20px;
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+}
+
+.loginBox {
+    background-color: #ffffff; 
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra suave y profunda */
+    text-align: center;
+    max-width: 450px; /* Ancho máximo para el formulario */
+    width: 100%; /* Ocupa el 100% del ancho disponible hasta el max-width */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil para el efecto de cristal */
+}
+
+.title {
+    font-size: 2.5em; /* Tamaño de fuente grande para el título */
+    margin-bottom: 10px;
+    color: green;
+    font-weight: 700; /* Negrita */
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: var(--text-color);
+    margin-bottom: 30px; /* Espacio debajo del subtítulo */
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column; /* Elementos apilados verticalmente */
+    gap: 20px; /* Espaciado entre grupos de input */
+}
+
+.inputGroup {
+    text-align: left; /* Alinea etiquetas a la izquierda */
+}
+
+.inputGroup label {
+    display: block; /* La etiqueta ocupa su propia línea */
+    margin-bottom: 8px;
+    font-weight: 600; /* Negrita para las etiquetas */
+    color: var(--dark-grey);
+}
+
+.inputField {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--light-grey);
+    border-radius: 8px; /* Bordes ligeramente redondeados para inputs */
+    font-size: 1em;
+    background-color: var(--white); /* Fondo blanco para el input */
+    color: var(--dark-grey);
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    transition: all 0.3s ease; /* Transición suave para cambios de estilo */
+}
+
+.inputField:focus {
+    outline: none; /* Elimina el contorno por defecto del navegador */
+    border-color: var(--primary-green); /* Borde verde al enfocar */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2); /* Sombra sutil al enfocar */
+}
+
+.loginButton {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 15px 25px;
+    border: none; /* Sin borde */
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    margin-top: 20px;
+}
+
+.loginButton:hover {
+    background-color: #45a049; /* Tono más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
+}
+
+.errorMessage {
+    color: var(--error-red); /* Color rojo para mensajes de error */
+    font-size: 0.9em;
+    margin-top: 10px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.infoMessage {
+    color: var(--info-blue); /* Color azul para mensajes de información */
+    font-size: 0.9em;
+    margin-top: 10px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.footerLinks {
+    color: #d6970fe3; /* Este color #dcb720 es el amarillo de "Olvidaste tu contraseña?" */
+    margin-top: 30px;
+    display: flex;
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    align-items: center;
+    gap: 10px; /* Espacio entre los enlaces y el separador */
+}
+
+.footerLinks .link {
+    color: var(--dark-grey); /* Usando var(--dark-grey) para un gris oscuro */
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.footerLinks .link:hover {
+    color: var(--secondary-brown); /* Color al pasar el mouse */
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+.footerLinks .separator {
+    color: var(--text-color);
+    font-size: 0.95em;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 600px) {
+    .loginBox {
+        padding: 30px 20px; /* Menos padding en pantallas pequeñas */
+        margin: 0 15px; /* Margen horizontal para que no toque los bordes */
+    }
+
+    .title {
+        font-size: 2em; /* Título más pequeño en móviles */
+    }
+
+    .loginButton {
+        padding: 12px 20px;
+    }
+}

@@ -1,0 +1,160 @@
+/* src/components/Dashboard/UserDetailModal.module.css */
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+}
+
+.modalContent {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh; /* Limita la altura y permite scroll */
+    overflow-y: auto; /* Habilita el scroll si el contenido es largo */
+    color: var(--text-color);
+}
+
+.closeButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--dark-grey);
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.closeButton:hover {
+    background-color: #eee;
+}
+
+.modalTitle {
+    font-size: 2em;
+    color: var(--primary-green);
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.detailGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas para los detalles */
+    gap: 15px 25px; /* Espacio entre filas y columnas */
+    margin-bottom: 30px;
+}
+
+.detailItem {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.detailItem strong {
+    color: var(--dark-grey);
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+.detailItem span, .detailItem p {
+    font-size: 1em;
+    color: var(--text-color);
+    line-height: 1.4;
+}
+
+.detailItemFull {
+    grid-column: 1 / -1; /* Ocupa ambas columnas */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.statusBadge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    color: var(--white); /* Texto blanco para los badges */
+    text-align: center;
+}
+
+.statusBadge.activo {
+    background-color: var(--primary-green); /* Verde para Activo */
+}
+
+.statusBadge.inactivo {
+    background-color: var(--secondary-brown); /* Marrón para Inactivo */
+}
+
+/* Agrega más colores para otros estados si es necesario, ej. suspendido */
+.statusBadge.suspendido {
+    background-color: #f44336; /* Rojo para Suspendido */
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    gap: 15px;
+    margin-top: 20px;
+    border-top: 1px solid #eee; /* Línea separadora */
+    padding-top: 20px;
+}
+
+.editButton, .deleteButton {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.editButton {
+    background-color: #2196F3; /* Azul para editar */
+    color: var(--white);
+}
+
+.editButton:hover {
+    background-color: #1976D2;
+    transform: translateY(-1px);
+}
+
+.deleteButton {
+    background-color: #f44336; /* Rojo para eliminar */
+    color: var(--white);
+}
+
+.deleteButton:hover {
+    background-color: #d32f2f;
+    transform: translateY(-1px);
+}
+
+
+@media (max-width: 768px) {
+    .detailGrid {
+        grid-template-columns: 1fr; 
+    }
+    .modalActions {
+        flex-direction: column; 
+        align-items: stretch;
+    }
+}

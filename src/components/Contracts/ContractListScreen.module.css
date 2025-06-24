@@ -1,0 +1,246 @@
+
+
+.container {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    text-align: center;
+    color: var(--primary-green);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.searchBar {
+    position: relative;
+    flex-grow: 1;
+    min-width: 250px;
+    max-width: 400px;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 12px 15px 12px 40px; 
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+}
+
+.searchInput:focus {
+    border-color: var(--primary-green);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.searchIcon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.clearSearchIcon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.clearSearchIcon:hover {
+    color: #555;
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filterSelect {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    color: var(--text-color);
+    background-color: var(--white);
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.filterSelect:focus {
+    border-color: var(--primary-green);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.contractList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.contractCard {
+    background-color: #f9f9f9; 
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.contractCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contractTitle {
+    color: var(--dark-grey);
+    font-size: 1.6em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.contractInfo {
+    font-size: 0.95em;
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.contractInfo strong {
+    color: var(--dark-grey);
+}
+
+.statusBadge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--white);
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.statusBadge.activo {
+    background-color: var(--primary-green);
+}
+
+.statusBadge.vencido {
+    background-color: #e74c3c; 
+}
+
+.statusBadge.pendiente {
+    background-color: #f39c12; 
+}
+
+.cardActions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; 
+}
+
+.actionButton {
+    background-color: var(--primary-green);
+    color: var(--white);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+    flex-grow: 1; 
+    justify-content: center;
+}
+
+.actionButton:hover {
+    background-color: var(--dark-green);
+}
+
+.noContractsMessage {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 1.2em;
+    margin-top: 50px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px auto;
+    }
+
+    .header {
+        font-size: 2em;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .searchBar, .filters {
+        width: 100%;
+        max-width: none;
+    }
+
+    .filterSelect {
+        flex-grow: 1;
+    }
+
+    .contractList {
+        grid-template-columns: 1fr; 
+    }
+
+    .contractCard {
+        padding: 20px;
+    }
+
+    .contractTitle {
+        font-size: 1.4em;
+    }
+
+    .cardActions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .actionButton {
+        width: 100%;
+    }
+}
